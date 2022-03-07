@@ -1,0 +1,60 @@
+#!/bin/bash
+
+echo "What choices will you choose"
+
+echo 1="Make a user input script"
+
+echo 2="Make a while loop"
+
+echo 3="Make a read command script"
+
+echo 4="Make an Integer script"
+
+read answer
+
+    case $answer in
+
+        1)
+
+			echo "Make a user input script"
+
+            nvim bio
+
+            ;;
+
+        2)
+
+            echo "Make a read command"
+
+            nvim name
+
+            ;;
+
+        3)
+
+            echo "Make a while loop"
+
+            nvim puddle
+
+            ;;
+
+        4)
+
+            echo "Make an Integer script"
+
+            nvim cpunt
+
+            ;;
+
+        *)
+
+            echo "You have to make a choice"
+
+            nvim "$1"
+
+            ;;
+
+    esac
+
+
+
