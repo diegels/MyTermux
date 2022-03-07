@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "From .bash_config" | lolcat
+##########
+if [ -f ~/fuck.sh ]; then
+    . ~/fuck.sh
+fi
+##########
+if [ -e $HOME/.bash_functions  ]; then
+        source $HOME/.bash_functions
+fi
+##########
+if [ -f ~/bin ]; then
+    . ~/bin
+fi
+##########
+##########
+
+
