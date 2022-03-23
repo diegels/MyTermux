@@ -1,16 +1,16 @@
-[[ $- == *i* ]] && "$HOME/.local/share/blesh/ble.sh" --noattach
+#[[ $- == *i* ]] && "$HOME/.local/share/blesh/ble.sh" --noattach
 
 # welcome message
-echo ".bashrc  🚬 " | lolcat
+echo ".bash_profile 🖕" | lolcat
 
 # sources
 eval "$(zoxide init bash)"
-source ~/ble.sh/blerc
-source ~/.local/share/blesh/ble.sh
+#source ~/ble.sh/blerc
+#source ~/.local/share/blesh/ble.sh
 source ~/aliases.sh
+#source ~/oh-my-git/prompt.sh
+source ~/.bash_prompt
 source ~/.bash_config
-#source $HOME/oh-my-git/prompt.sh
-
 # sourcing main bash file
 test -e /etc/bash.bashrc && source /etc/bash.bashrc
 
@@ -26,26 +26,21 @@ if  test -x /usr/bin/lesspipe; then
 	export LESSCLOSE="/usr/bin/lesspipe %s %s";
 fi
 
-function __getMachineId() {
-    if [ -f /etc/machine-id ]; then
-        echo $((0x$(cat /etc/machine-id | head -c 15)))
-    else
-        echo $(( (${#HOSTNAME}+0x$(hostid))))
-    fi                          
-}
 # command execution function
+#function _stat(){
 
-function _stat(){
+#if [[ "$?" = 0 ]]; then
+#	echo "🚀" 
+#else
+#	echo "💥"
+#fi
+#}
 
-if [[ "$?" = 0 ]]; then
-	echo "🚀" 
-else
-	echo "💥"
-fi
-}
+# .prompt.sh config
+
+
 # My prompt
-DIRTRIM_PROMPT=1
-PS1='\[\e[3;31m\](techkr \[\e[1;35m\]AT \[\e[3;32m\]tech) \[\e[3;35m\]IN \[\e[3;33m\][\W] $(_stat)\n\[\e[0m\]\[\e[3;34m\]_$\[\e[0m\]  '
+#PS1='\[\e[3;31m\](techkr \[\e[1;35m\]AT \[\e[3;32m\]tech) \[\e[3;35m\]IN \[\e[3;33m\][\W] $(_stat)\n\[\e[0m\]\[\e[3;34m\]_$\[\e[0m\]  '
 
 # term variables
 export TERM="xterm-256color"
@@ -66,11 +61,7 @@ export LESS_TERMCAP_us="^[[4m" # underline
 export PATH="$PATH:$HOME"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/colorscripts"
-
 # history
-#export HISTSIZE=5000
-#export HISTCONTROL="ignotrboth,spaces,dups"
-#export HISTFILESIZE=10000
 
 # set a fancy prompt
 case "$TERM" in
@@ -88,11 +79,7 @@ fi
 
 # uncomment for color prompt
 force_color_prompt=yes
-
-# alias
-alias vrc='vi .bashrc'
-alias src='source ~/.bashrc;'
-alias ls='ls -a'
+unset color_prompt force_color_prompt
 
 #Sourcing completion bash
 if ! shopt -oq posix; then
@@ -103,7 +90,15 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+function __getMachineId() {
+    if [ -f /etc/machine-id ]; then
+        echo $((0x$(cat /etc/machine-id | head -c 15)))
+    else
+        echo $(( (${#HOSTNAME}+0x$(hostid))))
+    fi
+}
 # ?
+
 # * files all
 shopt -s globstar
 # window size
@@ -121,8 +116,7 @@ shopt -s histappend
 # aitocd
 shopt -s autocd
 
-
-
+# Display matches for ambiguous patterns at first tab press
 # Update window size after every command
 shopt -s checkwinsize
 
@@ -131,8 +125,7 @@ PROMPT_DIRTRIM=2
 
 # Enable history expansion with space
 # E.g. typing !!<space> will replace the !! with your last command
-bind Space:magic-space
-
+bind Space:magic-space                                                                                                                                       
 # Turn on recursive globbing (enables ** to recurse all directories)
 shopt -s globstar 2> /dev/null
 
@@ -197,20 +190,22 @@ shopt -s cdspell 2> /dev/null
 
 # This defines where cd looks for targets
 # Add the directories you want to have fast access to, separated by colon
-# Ex: CDPATH=".:~:~/projects" will look for targets in the current working directory, in home
+# Ex: CDPATH=".:~:~/projects" will look for targets in the current working directory, in home and in the ~/projects folder
 CDPATH=".:~:~/bin"
 
 # This allows you to bookmark your favorite places across the file system
-# Define a variable containing a path and you will be able to cd into it regardless of the dir
+# Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars
 
 # Examples:
 export notes="$HOME/notes"
-# export dotfiles="$HOME/dotfiles"                                                            # export projects="$HOME/projects"
+# export dotfiles="$HOME/dotfiles"
+# export projects="$HOME/projects"
 # export documents="$HOME/Documents"
 # export dropbox="$HOME/Dropbox"
 ##########
 
+# Reset
 Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors
@@ -265,8 +260,7 @@ IWhite='\e[0;97m'       # White
 
 # Bold High Intensity
 BIBlack='\e[1;90m'      # Black
-BIRed='\e[1;91m'        # Red
-BIGreen='\e[1;92m'      # Green
+BIRed='\e[1;91m'        # Red                                                                                                                                BIGreen='\e[1;92m'      # Green
 BIYellow='\e[1;93m'     # Yellow
 BIBlue='\e[1;94m'       # Blue
 BIPurple='\e[1;95m'     # Purple
@@ -281,6 +275,36 @@ On_IYellow='\e[0;103m'  # Yellow
 On_IBlue='\e[0;104m'    # Blue
 On_IPurple='\e[0;105m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
+On_IWhite='\e[0;107m'   # White
+
+# history
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# hyper insensitive
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line if you want to disable marking untra
+# under VCS as dirty. This makes repository status check for large # much, much faster.                                                DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line to display red dots whilst waiting f
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+ HIST_STAMPS="mm/dd/yyyy"
+
+ # You may need to manually set your language environment
+ export LANG=en_US.UTF-8
+
+ # Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 
 #ENVIRONMENT VARIABLES:
@@ -290,14 +314,15 @@ _ZO_EXCLUDE_DIRS=""               # List of directory globs to be excluded
 _ZO_FZF_OPTS=""                   # Custom flags to pass to fzf
 _ZO_MAXAGE=100000                     # Maximum total age after which entries start getting deleted
 _ZO_RESOLVE_SYMLINKS=1           # Resolve symlinks when storing paths#
+echo "$(neofetch)"
+echo "                     $(date)                          " | lolcat
+echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" | lolcat
+echo "@@@@@@@@@@@@@@@@@@@@ [techkr@tech]@@@@@@@@@@@@@@@@@@@@" | lolcat 
+echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" | lolcat
+echo "                     $(uptime -p)                     " | lolcat
+echo "$(tux)"
 
-figlet "                  cool                   " | lolcat
-echo "∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆" | lolcat
-echo "∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆ sheldon@diegel ∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆" | lolcat
-echo "∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆" | lolcat
-                      echo "$(illumina)" | lolcat
 
 
-[[ ${BLE_VERSION-} ]] && ble-attach
-# Run twolfson/sexy-bash-prompt
-. ~/.bash_prompt
+
+#[ ${BLE_VERSION-} ]] && ble-attach
