@@ -1,0 +1,61 @@
+#!/bin/bash
+
+
+
+echo="$(colortest-slim sleep 2;,  elfman sleep 2;)"  
+
+echo="$(pacman  sleep 2;  ,   suckless sleeo 2;)"
+          
+echo="$(colorview sleeo 2;    ,    faces sleep 2; )" 
+		  
+echo="$(panes sleep 2;,  tanks sleep 2;)"
+          
+echo="$(00default.shvsleep 2;,   colorwheel sleep 2;)"     
+
+echo="$( fade sleep 2;    ,    pinguc sleep 2;  , thebat sleep 2;)"
+
+echo="$(alpha sleep 2; ,       crowns sleep 2; )"    
+		  
+echo="$(Ighosts  sleep 2 ,    print256 sleep 2;  ,      thebat2  sleep 2;)"   
+		  
+echo="$(arch sleep 2;  ,        crunch sleep 2;          
+
+echo="$(gun sleep 2   ,    pukeskul sleep 2;  ,      tiefighter1 sleep 2;)"
+          
+echo="$(awk-rgb-test sleep 2;,  crunchbang sleep 2; )" 
+		 
+echo="$(hex  sleep 2   ,     rails sleep 2 )"   
+
+echo="$(tiefighter1-no-invo sleep 2;)"
+          
+echo="$(bars sleep 2;  ,         crunchbang-mini sleep 2 )"
+
+echo="$(illumina sleep 2)"
+		  
+echo="$(rally-x sleep 2;,        tiefighter1row sleep 2;)"
+          
+echo="$(blocks1 sleep 2;  ,     darthvader sleep 2;  
+		  
+echo="$(jangofett sleep 2 ,   rupees sleep 2; ,         tiefighter2 sleep 2;)"
+          
+echo="$(blocks2 sleep 2; ,       debian sleep 2; )"     
+
+echo="$(kaisen sleep 2  ,    six  sleep 2     ,       tux sleep 2; )"        
+		  
+echo="$(bloks sleep 2;,         dna sleep 2; )"  
+
+echo="$(monster sleep 2 ,    space-invaders sleep 2; xmonad sleep 2;)"
+          
+echo="$(colorbars sleep 3  ,   doom-original sleep 2 )"   
+
+echo="$(mouseface  ,  spectrum sleep 2;  ,       zwaves sleep 2;)"
+          
+echo="$(colortest sleep 2; ,     doom-outlined  sleep 2;)"
+		  
+echo="$(mouseface2 sleep 2,   squar sleep 2;	)"  
+		  
+	
+
+
+
+
